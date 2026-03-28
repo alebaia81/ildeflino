@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Al Cascinetto – Pizzeria Artigianale | Monticelli d'Ongina</title>
-  <meta name="description" content="Al Cascinetto: la vera pizza artigianale a Monticelli d'Ongina. Cucina tipica piacentina, impasto tradizionale, ingredienti freschi. Pizzeria vicino a Cremona e Piacenza. Prenota il tuo tavolo!" />
-  <meta name="keywords" content="pizzeria Monticelli d'Ongina, Al Cascinetto, pizza artigianale, cucina piacentina, pizzeria vicino Cremona, ristorante Piacenza, pisarei e fasò" />
-  <meta property="og:title" content="Al Cascinetto – Pizzeria Artigianale a Monticelli d'Ongina" />
-  <meta property="og:description" content="La vera pizza artigianale e la cucina tipica piacentina nel cuore di Monticelli d'Ongina." />
+  <title>Ristorante Pizzeria Delfino – Specialità Pesce e Pizza | Monticelli d'Ongina</title>
+  <meta name="description" content="Ristorante Pizzeria Delfino: specialità di pesce freschissimo, pizze artigianali e cucina tipica piacentina a Monticelli d'Ongina dal 1997. Prenota ora!" />
+  <meta name="keywords" content="ristorante pesce Monticelli d'Ongina, pizzeria Delfino, pizza artigianale, cucina piacentina, ristorante Piacenza, gran fritto del delfino" />
+  <meta property="og:title" content="Ristorante Pizzeria Delfino – Il Gusto del Mare a Monticelli d'Ongina" />
+  <meta property="og:description" content="Specialità di pesce, pizze artigianali e i grandi classici piacentini. Tradizione e qualità dal 1997." />
   <meta property="og:type" content="restaurant" />
 
   <!-- Google Fonts -->
@@ -32,6 +32,9 @@
           fontFamily: {
             'serif': ['"Playfair Display"', 'Georgia', 'serif'],
             'sans': ['Inter', 'system-ui', 'sans-serif'],
+          },
+          textShadow: {
+            'glow': '0 0 20px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.4)',
           }
         }
       }
@@ -46,21 +49,21 @@
   {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "name": "Al Cascinetto",
-    "description": "Pizzeria artigianale e cucina tipica piacentina a Monticelli d'Ongina.",
-    "url": "https://www.alcascinetto.it",
-    "image": "https://www.alcascinetto.it/hero_bg.png",
-    "servesCuisine": ["Italiana", "Pizza Napoletana", "Cucina Piacentina"],
+    "name": "Ristorante Pizzeria Delfino",
+    "description": "Specialità di pesce freschissimo, pizze artigianali e cucina tipica piacentina a Monticelli d'Ongina.",
+    "url": "https://www.ristorantedelfino.it",
+    "image": "https://www.ristorantedelfino.it/hero_bg.png",
+    "servesCuisine": ["Pesce", "Italiana", "Pizza Artigianale", "Cucina Piacentina"],
     "priceRange": "€€",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Via del Cascinetto 2",
+      "streetAddress": "Via Martiri della Libertà, 2",
       "addressLocality": "Monticelli d'Ongina",
       "addressRegion": "PC",
       "postalCode": "29010",
       "addressCountry": "IT"
     },
-    "telephone": "+390523718456",
+    "telephone": "+393388003306",
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "05:00", "closes": "14:30" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "05:00", "closes": "22:00" },
@@ -72,7 +75,7 @@
       "latitude": 45.0884,
       "longitude": 9.9393
     },
-    "menu": "https://www.alcascinetto.it/#menu",
+    "menu": "https://www.ristorantedelfino.it/#menu",
     "acceptsReservations": true
   }
   </script>
@@ -85,12 +88,12 @@
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" aria-label="Navigazione principale">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3 group" aria-label="Al Cascinetto - Home">
+      <a href="#hero" class="flex items-center gap-3 group" aria-label="Ristorante Pizzeria Delfino - Home">
         <div class="logo-emblem w-10 h-10 border border-gold rounded-full flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
-          <span class="font-serif text-gold text-sm font-bold group-hover:text-dark-primary transition-colors duration-300">AC</span>
+          <span class="font-serif text-gold text-sm font-bold group-hover:text-dark-primary transition-colors duration-300">RD</span>
         </div>
         <div class="leading-none">
-          <span class="block font-serif text-lg font-semibold text-white">Al Cascinetto</span>
+          <span class="block font-serif text-lg font-semibold text-white">Ristorante Delfino</span>
           <span class="block text-xs text-gold tracking-widest uppercase">Monticelli d'Ongina</span>
         </div>
       </a>
@@ -98,11 +101,12 @@
       <!-- Desktop Nav Links -->
       <div class="hidden md:flex items-center gap-8">
         <a href="#menu" class="nav-link text-sm tracking-wide text-gray-300 hover:text-gold transition-colors duration-300">Menu</a>
+        <a href="#menu-mese" class="nav-link text-sm tracking-wide text-gray-300 hover:text-gold transition-colors duration-300 inline-flex items-center">
+          Speciale
+          <span class="ml-2 -mt-4 text-[0.5rem] bg-gold text-dark-primary font-bold px-1.5 py-0.5 rounded-full leading-none">NEW</span>
+        </a>
         <a href="#chi-siamo" class="nav-link text-sm tracking-wide text-gray-300 hover:text-gold transition-colors duration-300">Chi Siamo</a>
         <a href="#contatti" class="nav-link text-sm tracking-wide text-gray-300 hover:text-gold transition-colors duration-300">Contatti</a>
-        <a href="#prenota" class="cta-btn px-5 py-2.5 bg-gold text-dark-primary text-sm font-semibold rounded-lg hover:bg-gold-light transition-all duration-300 shadow-gold">
-          Ordina Online
-        </a>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -116,11 +120,9 @@
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden md:hidden bg-dark-secondary border-t border-gold/20 px-6 py-6 flex-col gap-6">
       <a href="#menu" class="nav-link-mobile block text-lg font-serif text-gray-200 hover:text-gold transition-colors">Menu</a>
+      <a href="#menu-mese" class="nav-link-mobile block text-lg font-serif text-gold hover:text-gold-light transition-colors">⭐ Speciale del Mese</a>
       <a href="#chi-siamo" class="nav-link-mobile block text-lg font-serif text-gray-200 hover:text-gold transition-colors">Chi Siamo</a>
       <a href="#contatti" class="nav-link-mobile block text-lg font-serif text-gray-200 hover:text-gold transition-colors">Contatti</a>
-      <a href="#prenota" class="block text-center px-6 py-3 bg-gold text-dark-primary font-semibold rounded-lg hover:bg-gold-light transition-all duration-300">
-        Ordina Online
-      </a>
     </div>
   </nav>
 
@@ -138,15 +140,15 @@
         playsinline
         preload="auto"
         class="absolute inset-0 w-full h-full object-cover scale-105"
-        style="filter: brightness(0.75) saturate(1.1);"
+        style="filter: brightness(0.92) saturate(1.1);"
         aria-hidden="true"
       >
-        <source src="hero_video.mp4" type="video/mp4" />
+        <source src="hero_fish.mp4" type="video/mp4" />
       </video>
-      <!-- Dark luxury overlay -->
-      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary/70 via-dark-primary/40 to-dark-primary"></div>
+      <!-- Dark luxury overlay (lighter for video visibility) -->
+      <div class="absolute inset-0 bg-gradient-to-b from-dark-primary/40 via-dark-primary/20 to-dark-primary"></div>
       <!-- Vignette laterale -->
-      <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 40%, rgba(10,10,10,0.7) 100%);"></div>
+      <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 55%, rgba(10,10,10,0.45) 100%);"></div>
     </div>
 
 
@@ -155,44 +157,27 @@
 
     <!-- Hero Content -->
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-24">
-      <p class="fade-in text-gold text-sm tracking-[0.4em] uppercase mb-6 font-light">Dal 1987 · Artigianale · Autentico</p>
-      <h1 class="fade-in font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
-        Autentici Sapori<br /><em class="text-gold">Italiani</em>
+      <p class="fade-in text-gold text-sm tracking-[0.4em] uppercase mb-6 font-light [text-shadow:0_2px_10px_rgba(0,0,0,0.8)]">Dal 1997 · Passione · Qualità</p>
+      <h1 class="fade-in font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+        Il Gusto del Mare<br /><em class="text-gold">incontra la Tradizione</em>
       </h1>
-      <p class="fade-in text-gray-300 text-lg md:text-xl mb-12 font-light leading-relaxed max-w-2xl mx-auto">
-        La vera pizza artigianale nel cuore di Monticelli d'Ongina.<br />
-        Tradizione piacentina, impasto a lievitazione naturale, ingredienti freschi ogni giorno.
+      <p class="fade-in text-gray-200 text-lg md:text-xl mb-12 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+        Specialità di pesce freschissimo, pizze artigianali e i grandi classici piacentini dal 1997.
       </p>
-      <div class="fade-in flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="#prenota" class="px-8 py-4 bg-gold text-dark-primary font-semibold text-base rounded-xl hover:bg-gold-light hover:scale-105 transition-all duration-300 shadow-gold min-w-[200px] text-center">
+      <div class="fade-in flex flex-col sm:flex-row w-full max-w-sm mx-auto sm:max-w-none gap-4 justify-center items-center">
+        <a href="#prenota" class="px-6 py-4 sm:px-10 sm:py-5 bg-gold text-dark-primary font-semibold text-base sm:text-lg rounded-xl hover:bg-gold-light hover:scale-105 transition-all duration-300 shadow-gold w-full sm:w-auto sm:min-w-[240px] text-center">
           Prenota un Tavolo
         </a>
-        <a href="#menu" class="px-8 py-4 border-2 border-gold text-gold font-semibold text-base rounded-xl hover:bg-gold/10 hover:scale-105 transition-all duration-300 min-w-[200px] text-center">
+        <a href="#menu" class="px-6 py-4 sm:px-10 sm:py-5 border-2 border-gold text-gold font-semibold text-base sm:text-lg rounded-xl hover:bg-gold/10 hover:scale-105 transition-all duration-300 w-full sm:w-auto sm:min-w-[240px] text-center">
           Visualizza Menu
         </a>
-      </div>
-
-      <!-- Stats bar -->
-      <div class="fade-in flex flex-wrap justify-center gap-12 mt-20 border-t border-gold/20 pt-10">
-        <div class="text-center">
-          <div class="font-serif text-3xl text-gold font-bold">35+</div>
-          <div class="text-xs text-gray-400 tracking-widest uppercase mt-1">Anni di Passione</div>
-        </div>
-        <div class="text-center">
-          <div class="font-serif text-3xl text-gold font-bold">100%</div>
-          <div class="text-xs text-gray-400 tracking-widest uppercase mt-1">Impasto Artigianale</div>
-        </div>
-        <div class="text-center">
-          <div class="font-serif text-3xl text-gold font-bold">Km0</div>
-          <div class="text-xs text-gray-400 tracking-widest uppercase mt-1">Ingredienti Locali</div>
-        </div>
       </div>
     </div>
 
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce-slow">
-      <span class="text-xs text-gold/60 tracking-widest uppercase">Scopri</span>
-      <div class="w-0.5 h-8 bg-gradient-to-b from-gold/60 to-transparent"></div>
+    <div class="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-bounce-slow">
+      <span class="text-sm text-gold/80 tracking-[0.3em] uppercase font-medium">Scopri</span>
+      <div class="w-0.5 h-10 bg-gradient-to-b from-gold/80 to-transparent"></div>
     </div>
   </section>
 
@@ -209,55 +194,89 @@
       </div>
 
       <!-- Dishes grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-transparent justify-center gap-6">
 
-        <!-- Card 1: Al Cascinetto -->
+        <!-- Card 1: Spaghetti alle Vongole -->
         <article class="dish-card fade-in-scroll bg-dark-card rounded-2xl overflow-hidden group cursor-pointer border border-transparent hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
-          <div class="relative overflow-hidden h-64">
-            <img src="dish_cascinetto.png" alt="Pizza Al Cascinetto – la pizza della casa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+          <div class="relative overflow-hidden h-56">
+            <img src="images/spaghetti alle vongole.webp" alt="Spaghetti alle Vongole" width="400" height="300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
-            <div class="absolute top-4 left-4 px-3 py-1 bg-gold text-dark-primary text-xs font-semibold rounded-full tracking-wide">La Nostra</div>
+            <div class="absolute top-4 left-4 px-3 py-1 bg-gold text-dark-primary text-xs font-semibold rounded-full tracking-wide">Specialità</div>
           </div>
           <div class="p-6">
-            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Al Cascinetto</h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-4">Pomodoro, fior di latte, pomodoro fresco, prosciutto cotto, funghi, wurstel, gorgonzola</p>
+            <h3 class="font-serif text-xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Spaghetti alle Vongole</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Il vero sapore del mare in un grande classico.</p>
             <div class="flex items-center justify-between">
-              <span class="text-gold font-semibold">Mini € 9 · Norm. € 10</span>
+              <span class="text-gold font-semibold">€ 16,00</span>
               <a href="#menu" class="text-xs text-gold/70 hover:text-gold transition-colors border-b border-gold/30 hover:border-gold pb-0.5">Vedi Menu →</a>
             </div>
           </div>
         </article>
 
-        <!-- Card 2: Pizza in Pala -->
+        <!-- Card 2: Gran Fritto del Delfino -->
         <article class="dish-card fade-in-scroll bg-dark-card rounded-2xl overflow-hidden group cursor-pointer border border-transparent hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" style="transition-delay: 100ms;">
-          <div class="relative overflow-hidden h-64">
-            <img src="dish_pala_romana.png" alt="Pizza in Pala alla Romana – formato 60×35cm" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+          <div class="relative overflow-hidden h-56">
+            <img src="images/frittura1.webp" alt="Gran Fritto del Delfino" width="400" height="300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
-            <div class="absolute top-4 left-4 px-3 py-1 bg-gold text-dark-primary text-xs font-semibold rounded-full tracking-wide">★</div>
+            <div class="absolute top-4 left-4 px-3 py-1 bg-gold text-dark-primary text-xs font-semibold rounded-full tracking-wide">Iconico</div>
           </div>
           <div class="p-6">
-            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Pizza in Pala Romana</h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-4">Formato 60×35 cm, impasto ad alta idratazione. Margherita € 17 · Farcita € 23. Anche Gluten Free.</p>
+            <h3 class="font-serif text-xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Gran Fritto del Delfino</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Il meglio del pescato, croccante e leggero.</p>
             <div class="flex items-center justify-between">
-              <span class="text-gold font-semibold">da € 17,00</span>
-              <a href="#menu" onclick="showTab('cucina')" class="text-xs text-gold/70 hover:text-gold transition-colors border-b border-gold/30 hover:border-gold pb-0.5">Scopri →</a>
+              <span class="text-gold font-semibold">€ 18,00</span>
+              <a href="#menu" class="text-xs text-gold/70 hover:text-gold transition-colors border-b border-gold/30 hover:border-gold pb-0.5">Scopri →</a>
             </div>
           </div>
         </article>
 
-        <!-- Card 3: Autunno -->
+        <!-- Card 3: Pizza Frutti di Mare -->
         <article class="dish-card fade-in-scroll bg-dark-card rounded-2xl overflow-hidden group cursor-pointer border border-transparent hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" style="transition-delay: 200ms;">
-          <div class="relative overflow-hidden h-64">
-            <img src="dish_autunno.png" alt="Pizza Autunno – porcini tartufati, speck, scaglie di grana" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+          <div class="relative overflow-hidden h-56">
+            <img src="images/pizza frutti di mare.webp" alt="Pizza Frutti di Mare" width="400" height="300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
-            <div class="absolute top-4 left-4 px-3 py-1 bg-dark-secondary text-gold text-xs font-semibold rounded-full tracking-wide border border-gold/40">Stagionale</div>
+            <div class="absolute top-4 left-4 px-3 py-1 bg-gold text-dark-primary text-xs font-semibold rounded-full tracking-wide">La Nostra Firma</div>
           </div>
           <div class="p-6">
-            <h3 class="font-serif text-2xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Pizza Autunno</h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-4">Vellutata di porcini tartufata, mozzarella fior di latte, porcini freschi, speck, scaglie di grana</p>
+            <h3 class="font-serif text-xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Pizza Frutti di Mare</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Un impasto leggero, ricco di pescato fresco.</p>
             <div class="flex items-center justify-between">
-              <span class="text-gold font-semibold">Mini € 10 · Norm. € 11</span>
-              <a href="#menu" onclick="showTab('speciali')" class="text-xs text-gold/70 hover:text-gold transition-colors border-b border-gold/30 hover:border-gold pb-0.5">Vedi Menu →</a>
+              <span class="text-gold font-semibold">€ 14,00</span>
+              <a href="#menu" class="text-xs text-gold/70 hover:text-gold transition-colors border-b border-gold/30 hover:border-gold pb-0.5">Vedi Menu →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Risotto ai Porcini -->
+        <article class="dish-card fade-in-scroll bg-dark-card rounded-2xl overflow-hidden group cursor-pointer border border-transparent hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" style="transition-delay: 300ms;">
+          <div class="relative overflow-hidden h-56">
+            <img src="images/risotto porcini.webp" alt="Risotto ai Porcini" width="400" height="300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4 px-3 py-1 bg-dark-secondary text-gold text-xs font-semibold rounded-full tracking-wide border border-gold/40">Tradizione</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Risotto ai Porcini</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Cremoso e profumato, un vero classico della terra.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-gold font-semibold">€ 14,00</span>
+              <a href="#menu" class="text-xs text-gold/70 hover:text-gold transition-colors border-b border-gold/30 hover:border-gold pb-0.5">Vedi Menu →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Pasta Fatta in Casa -->
+        <article class="dish-card fade-in-scroll bg-dark-card rounded-2xl overflow-hidden group cursor-pointer border border-transparent hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" style="transition-delay: 400ms;">
+          <div class="relative overflow-hidden h-56">
+            <img src="images/pasta fatta in casa.webp" alt="Pasta Fatta in Casa" width="400" height="300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
+            <div class="absolute top-4 left-4 px-3 py-1 bg-dark-secondary text-gold text-xs font-semibold rounded-full tracking-wide border border-gold/40">Genuinità</div>
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Pasta Fatta in Casa</h3>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">Preparata freschissima, come vuole la tradizione.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-gold font-semibold">€ 12,00</span>
+              <a href="#menu" class="text-xs text-gold/70 hover:text-gold transition-colors border-b border-gold/30 hover:border-gold pb-0.5">Vedi Menu →</a>
             </div>
           </div>
         </article>
@@ -284,7 +303,7 @@
           </h2>
           <div class="space-y-5 text-gray-300 leading-relaxed">
             <p>
-              Nel cuore di <strong class="text-white">Monticelli d'Ongina</strong>, lungo il verde della pianura padana a pochi chilometri da Cremona e Piacenza, Al Cascinetto è molto più di una pizzeria: è un luogo dove il tempo rallenta e ogni piatto racconta una storia.
+              Nel cuore di <strong class="text-white">Monticelli d'Ongina</strong>, Ristorante Pizzeria Delfino è molto più di un locale: è un punto di incontro tra la freschezza del mare e la solidità della cucina piacentina. Dal 1997, portiamo in tavola passione e qualità.
             </p>
             <p>
               Tutto nasce dall'<strong class="text-gold">impasto</strong>. Lo lavoriamo ogni mattina, con farina selezionata e lievito madre che fermenta lentamente per oltre 48 ore. Il risultato è una pizza leggera, croccante fuori, morbida dentro: quella che i veri intenditori riconoscono al primo morso.
@@ -317,13 +336,170 @@
         <!-- Decorative image block -->
         <div class="fade-in-scroll relative">
           <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="chi_siamo.png" alt="Interno di Al Cascinetto – forno a legna artigianale" class="w-full h-96 lg:h-[520px] object-cover" loading="lazy" />
+            <img src="images/castello di monticelli d'ongina.webp" alt="Il magnifico Castello di Monticelli d'Ongina" width="800" height="600" class="w-full h-96 lg:h-[520px] object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-dark-secondary/80 via-transparent to-transparent"></div>
           </div>
           <!-- Floating quote card -->
           <div class="absolute -bottom-6 -left-6 bg-dark-primary border border-gold/30 rounded-2xl p-6 max-w-xs shadow-gold">
-            <p class="font-serif italic text-white text-sm leading-relaxed">"La pizza perfetta non si crea in fretta. Si nutre di tempo, di cura, di amore."</p>
-            <p class="text-gold text-xs mt-3 tracking-wide">— Il Pizzaiolo di Al Cascinetto</p>
+            <p class="font-serif italic text-white text-sm leading-relaxed">"Il mare a tavola, la pizza nel cuore e la tradizione piacentina in ogni morso."</p>
+            <p class="text-gold text-xs mt-3 tracking-wide">— Ristorante Pizzeria Delfino</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       REVIEWS (NEW SECTION)
+  ═══════════════════════════════════════════════ -->
+  <section id="recensioni" class="py-24 bg-dark-card relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 fade-in-scroll">
+        <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">Dicono di noi</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Esperienze degli Ospiti</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Review 1 -->
+        <div class="fade-in-scroll bg-dark-secondary p-8 rounded-2xl border border-gold/10 hover:border-gold/30 transition-all duration-300">
+          <div class="flex text-gold mb-4 text-sm">★★★★★</div>
+          <p class="text-gray-300 italic mb-6 text-sm leading-relaxed">"Questo locale è sempre molto piacevole, le pizze sono ottime e il personale molto gentile. La pizza è la mia preferita, di tipo basso e con poca crosta, molto digeribile e gustosa. Consigliatissimo!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold font-bold">M</div>
+            <div>
+              <p class="text-white font-serif text-sm">matteo</p>
+              <p class="text-xs text-gray-500">TripAdvisor</p>
+            </div>
+          </div>
+        </div>
+        <!-- Review 2 -->
+        <div class="fade-in-scroll bg-dark-secondary p-8 rounded-2xl border border-gold/10 hover:border-gold/30 transition-all duration-300" style="transition-delay: 100ms;">
+          <div class="flex text-gold mb-4 text-sm">★★★★★</div>
+          <p class="text-gray-300 italic mb-6 text-sm leading-relaxed">"Locale molto carino con dei bei tavoli all’aperto. Il personale è molto gentile e la pizza è veramente fantastica!!!!!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold font-bold">S</div>
+            <div>
+              <p class="text-white font-serif text-sm">Susanna D</p>
+              <p class="text-xs text-gray-500">TripAdvisor</p>
+            </div>
+          </div>
+        </div>
+        <!-- Review 3 -->
+        <div class="fade-in-scroll bg-dark-secondary p-8 rounded-2xl border border-gold/10 hover:border-gold/30 transition-all duration-300" style="transition-delay: 200ms;">
+          <div class="flex text-gold mb-4 text-sm">★★★★★</div>
+          <p class="text-gray-300 italic mb-6 text-sm leading-relaxed">"Posto molto accogliente, cucina top, personale sempre sorridente... ingredienti di ottima qualità, ci ritorneremo sicuramente, apprezzato e votato a pieni voti da tutta la famiglia."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-gold/10 rounded-full flex items-center justify-center text-gold font-bold">J</div>
+            <div>
+              <p class="text-white font-serif text-sm">Jorida J</p>
+              <p class="text-xs text-gray-500">TripAdvisor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-12 fade-in-scroll">
+        <a href="https://www.tripadvisor.it/Restaurant_Review-g1966160-d4722502-Reviews-Pizzeria_Trattoria_Delfino-Monticelli_d_Ongina_Province_of_Piacenza_Emilia_Romag.html" target="_blank" rel="noopener" class="text-gold text-xs uppercase tracking-widest hover:text-white transition-colors border-b border-gold/30 pb-1">Leggi tutte le recensioni su TripAdvisor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       MENU SPECIALE DEL MESE
+  ═══════════════════════════════════════════════ -->
+  <section id="menu-mese" class="py-24 bg-dark-secondary relative overflow-hidden border-t-0 border-b border-gold/20">
+    <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 1px 1px, #d4af37 1px, transparent 0); background-size: 40px 40px;"></div>
+    
+    <div class="max-w-4xl mx-auto px-6 relative z-10">
+      <div class="text-center mb-16 fade-in-scroll">
+        <p class="text-gold text-xs tracking-[0.4em] uppercase mb-3">Novità</p>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Speciale del Mese</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto mb-6"></div>
+        <p class="text-gray-400 max-w-lg mx-auto text-sm">Scopri le nostre proposte esclusive per questo mese, create appositamente dai nostri chef.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <!-- Colonna 1 -->
+        <div class="space-y-10 fade-in-scroll">
+          <div>
+            <h3 class="font-serif text-2xl text-gold mb-6 border-b border-gold/20 pb-2">Antipasti</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between items-start gap-4">
+                <div class="flex-1">
+                  <h4 class="text-white font-medium">Tartare di salmone</h4>
+                  <p class="text-sm text-gray-400 mt-1">su crema di patate e mandorle</p>
+                </div>
+                <span class="text-gold font-semibold shrink-0">€ 14,00</span>
+              </div>
+              <div class="flex justify-between items-start gap-4">
+                <div class="flex-1">
+                  <h4 class="text-white font-medium">Bruschetta con uovo</h4>
+                  <p class="text-sm text-gray-400 mt-1">e crema al tartufo</p>
+                </div>
+                <span class="text-gold font-semibold shrink-0">€ 12,00</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="font-serif text-2xl text-gold mb-6 border-b border-gold/20 pb-2">Primi</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between items-start gap-4">
+                <div class="flex-1">
+                  <h4 class="text-white font-medium">Spaghetti alla carbonara</h4>
+                </div>
+                <span class="text-gold font-semibold shrink-0">€ 12,00</span>
+              </div>
+              <div class="flex justify-between items-start gap-4">
+                <div class="flex-1">
+                  <h4 class="text-white font-medium">Riso alla pescatora</h4>
+                  <p class="text-sm text-gray-400 mt-1">con pomodoro</p>
+                </div>
+                <span class="text-gold font-semibold shrink-0">€ 14,00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colonna 2 -->
+        <div class="space-y-10 fade-in-scroll" style="transition-delay: 100ms;">
+          <div>
+            <h3 class="font-serif text-2xl text-gold mb-6 border-b border-gold/20 pb-2">Secondi</h3>
+            <div class="space-y-4">
+              <div class="flex justify-between items-start gap-4">
+                <div class="flex-1">
+                  <h4 class="text-white font-medium">Filetto di Branzino</h4>
+                  <p class="text-sm text-gray-400 mt-1">all'acqua pazza</p>
+                </div>
+                <span class="text-gold font-semibold shrink-0">€ 18,00</span>
+              </div>
+              <div class="flex justify-between items-start gap-4">
+                <div class="flex-1">
+                  <h4 class="text-white font-medium">Spiedino di San Nazzaro</h4>
+                  <p class="text-sm text-gray-400 mt-1">con polenta</p>
+                </div>
+                <span class="text-gold font-semibold shrink-0">€ 16,00</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Highlight Box -->
+          <div class="bg-dark-card border border-gold/40 rounded-2xl p-6 relative overflow-hidden shadow-gold mt-6 transition-all duration-300 hover:border-gold hover:scale-[1.02]">
+            <div class="absolute top-0 right-0 px-4 py-1.5 bg-gold text-dark-primary text-[10px] font-bold tracking-[0.2em] uppercase rounded-bl-xl">
+              Speciale
+            </div>
+            <h3 class="font-serif text-xl text-white mb-2 pr-16 border-b border-gold/20 pb-2 inline-block">Il Piatto del Mese</h3>
+            <div class="flex justify-between items-start gap-4 mt-4">
+              <div class="flex-1">
+                <h4 class="text-gold font-medium text-lg">Hamburger l'Americano</h4>
+                <p class="text-sm text-gray-300 mt-1">con contorno di patatine fritte</p>
+                <p class="text-xs text-gray-500 mt-2 leading-relaxed italic">
+                  (180gr di burger di manzo, insalata iceberg, cipolle caramellate e salsa cheddar)
+                </p>
+              </div>
+              <span class="text-gold font-bold text-xl shrink-0 mt-1">€ 13,00</span>
+            </div>
           </div>
         </div>
 
@@ -347,16 +523,15 @@
       <!-- Menu tabs -->
       <div class="flex justify-center gap-2 mb-12 flex-wrap fade-in-scroll">
         <button onclick="showTab('classiche')" id="tab-classiche" class="menu-tab active-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300">Pizze Classiche</button>
-        <button onclick="showTab('speciali')" id="tab-speciali" class="menu-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300">Pizze Gustose &amp; Calzoni</button>
+        <button onclick="showTab('speciali')" id="tab-speciali" class="menu-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300">Pizze Speciali</button>
         <button onclick="showTab('cucina')" id="tab-cucina" class="menu-tab px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 relative">
-          Pizza in Pala
+          Cucina &amp; Mare
           <span class="absolute -top-2 -right-2 text-[0.5rem] bg-gold text-dark-primary font-bold px-1.5 py-0.5 rounded-full tracking-wide">★</span>
         </button>
       </div>
 
       <!-- PIZZE CLASSICHE -->
       <div id="menu-classiche" class="menu-section space-y-3">
-        <div class="menu-item"></div>
         <!-- items generated in JS -->
       </div>
 
@@ -383,7 +558,7 @@
       </div>
 
       <form id="booking-form" action="https://formspree.io/f/xbdzebal" method="POST" class="fade-in-scroll bg-dark-card border border-gold/20 rounded-2xl p-8 md:p-10 shadow-2xl" novalidate>
-        <input type="hidden" name="_subject" value="Nuova Prenotazione – Al Cascinetto" />
+        <input type="hidden" name="_subject" value="Nuova Prenotazione – Ristorante Delfino" />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="form-group">
@@ -480,10 +655,10 @@
               </div>
               <div>
                 <h4 class="text-white font-medium mb-1">Indirizzo</h4>
-                <p class="text-gray-400 text-sm">Via del Cascinetto 2, 29010 Monticelli d'Ongina (PC)</p>
+                <p class="text-gray-400 text-sm">Via Martiri della Libertà, 2, 29010 Monticelli d'Ongina (PC)</p>
               </div>
             </div>
-            <p class="text-xs text-gray-500 mt-1">A pochi km da Cremona e Piacenza · Cucina tipica piacentina</p>
+            <p class="text-xs text-gray-500 mt-1">Specialità di pesce · Pizzeria Artigianale · Tradizione Piacentina</p>
           </div>
 
           <div class="flex gap-5 items-start group">
@@ -492,7 +667,7 @@
             </div>
             <div>
               <h3 class="font-semibold text-white mb-1">Telefono</h3>
-              <a href="tel:+390523718456" class="text-gold hover:text-gold-light transition-colors text-sm">0523 718456</a>
+              <a href="tel:+390523827255" class="text-gold hover:text-gold-light transition-colors text-sm">0523 827255</a>
             </div>
           </div>
 
@@ -543,7 +718,7 @@
             <a href="#" aria-label="Instagram" class="social-icon w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-primary transition-all duration-300">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/></svg>
             </a>
-            <a href="https://wa.me/39NUMERO" aria-label="WhatsApp" class="social-icon w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-primary transition-all duration-300">
+            <a href="https://wa.me/393388003306" aria-label="WhatsApp" class="social-icon w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-primary transition-all duration-300">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </a>
           </div>
@@ -553,18 +728,18 @@
         <div class="fade-in-scroll">
           <div class="rounded-2xl overflow-hidden border border-gold/20 shadow-2xl bg-dark-card h-80 lg:h-96 relative">
             <iframe
-              src="https://maps.google.com/maps?q=Via+del+Cascinetto+2,+Monticelli+d%27Ongina,+PC,+Italy&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2812.3!2d9.939!3d45.088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia%20Martiri%20della%20Libert%C3%A0%2C%202%2C%2029010%20Monticelli%20d'Ongina%20PC!5e0!3m2!1sit!2sit!4v1234567890"
               width="100%"
               height="100%"
               style="border:0; filter: grayscale(70%) contrast(0.85);"
               allowfullscreen=""
               loading="lazy"
-              title="Mappa Al Cascinetto – Via del Cascinetto 2 Monticelli d'Ongina"
+              title="Mappa Ristorante Pizzeria Delfino – Via Martiri della Libertà, 2 Monticelli d'Ongina"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
             <div class="absolute inset-0 pointer-events-none border border-gold/10 rounded-2xl"></div>
           </div>
-          <p class="text-xs text-gray-500 text-center mt-3">Via del Cascinetto 2, Monticelli d'Ongina (PC) — <a href="https://maps.google.com?q=Via+del+Cascinetto+2,+Monticelli+d'Ongina,+PC" target="_blank" rel="noopener" class="text-gold hover:text-gold-light transition-colors">Apri in Google Maps →</a></p>
+          <p class="text-xs text-gray-500 text-center mt-3">Via Martiri della Libertà, 2, Monticelli d'Ongina (PC) — <a href="https://maps.google.com?q=Via+Martiri+della+Libertà,+2,+Monticelli+d'Ongina,+PC" target="_blank" rel="noopener" class="text-gold hover:text-gold-light transition-colors">Apri in Google Maps →</a></p>
         </div>
 
       </div>
@@ -582,21 +757,23 @@
         <div class="text-center md:text-left">
           <div class="flex items-center gap-3 justify-center md:justify-start mb-3">
             <div class="w-8 h-8 border border-gold rounded-full flex items-center justify-center">
-              <span class="font-serif text-gold text-xs font-bold">AC</span>
+              <span class="font-serif text-gold text-xs font-bold">RD</span>
             </div>
-            <span class="font-serif text-xl text-white">Al Cascinetto</span>
+            <span class="font-serif text-xl text-white">Ristorante Pizzeria Delfino</span>
           </div>
-          <p class="text-xs text-gray-500 mb-1">Pizzeria Artigianale · Cucina Tipica Piacentina</p>
-          <p class="text-xs text-gray-500">La tua pizzeria di riferimento a pochi minuti da Cremona e Piacenza.</p>
-          <p class="text-xs text-gray-600 mt-1">Via del Cascinetto 2, 29010 Monticelli d'Ongina (PC)</p>
+          <p class="text-xs text-gray-500 mb-1">Specialità Pesce · Pizzeria Artigianale · Cucina Tipica</p>
+          <p class="text-xs text-gray-500">Eccellenza gastronomica a Monticelli d'Ongina dal 1997.</p>
+          <p class="text-xs text-gray-600 mt-1">Via Martiri della Libertà, 2, 29010 Monticelli d'Ongina (PC)</p>
         </div>
 
-        <!-- Links -->
-        <div class="flex gap-8 text-sm text-gray-400">
-          <a href="#menu" class="hover:text-gold transition-colors">Menu</a>
-          <a href="#chi-siamo" class="hover:text-gold transition-colors">Chi Siamo</a>
-          <a href="#prenota" class="hover:text-gold transition-colors">Prenota</a>
-          <a href="#contatti" class="hover:text-gold transition-colors">Contatti</a>
+        <!-- Social Links -->
+        <div class="flex gap-6 text-sm text-gray-400">
+          <a href="#" aria-label="Facebook" class="hover:text-gold transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="hover:text-gold transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/></svg>
+          </a>
         </div>
 
         <!-- CTA -->
@@ -607,13 +784,13 @@
       </div>
 
       <div class="border-t border-gold/10 mt-10 pt-6 text-center">
-        <p class="text-xs text-gray-600">© 2024 Al Cascinetto – Tutti i diritti riservati · P.IVA [NUMERO] · <a href="#" class="hover:text-gold-light transition-colors">Privacy Policy</a></p>
+        <p class="text-xs text-gray-600">© 2026 Ristorante Pizzeria Delfino – Tutti i diritti riservati · <a href="#" class="hover:text-gold-light transition-colors">Privacy Policy</a></p>
       </div>
     </div>
   </footer>
 
   <!-- WhatsApp floating button -->
-  <a href="https://wa.me/390523718456?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20ad%20Al%20Cascinetto." target="_blank" rel="noopener" id="whatsapp-btn" aria-label="Chatta su WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+  <a href="https://wa.me/393388003306?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20al%20Ristorante%20Delfino." target="_blank" rel="noopener" id="whatsapp-btn" aria-label="Chatta su WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
     <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 

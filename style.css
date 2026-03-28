@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   AL CASCINETTO — DARK LUXURY CSS
+   RISTORANTE PIZZERIA DELFINO — DARK LUXURY CSS
    ═══════════════════════════════════════ */
 
 /* ─── Base Reset ─── */
@@ -211,6 +211,7 @@ img { display: block; }
   font-family: 'Inter', sans-serif;
   transition: all 0.3s ease;
   -webkit-appearance: none;
+  appearance: none;
 }
 .form-input::placeholder { color: #4b5563; }
 .form-input:focus {
