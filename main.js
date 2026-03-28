@@ -327,6 +327,30 @@ function initActiveNav() {
 }
 
 /* ─────────────────────────────────────────
+   COOKIE BANNER
+───────────────────────────────────────── */
+function initCookieBanner() {
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const rejectBtn = document.getElementById('cookie-reject');
+  if (!banner || !acceptBtn || !rejectBtn) return;
+
+  if (!localStorage.getItem('cookie_delfino_consent')) {
+    setTimeout(() => {
+      banner.classList.remove('translate-y-full');
+    }, 1000);
+  }
+
+  const hideBanner = (choice) => {
+    localStorage.setItem('cookie_delfino_consent', choice);
+    banner.classList.add('translate-y-full');
+  };
+
+  acceptBtn.addEventListener('click', () => hideBanner('accepted'));
+  rejectBtn.addEventListener('click', () => hideBanner('rejected'));
+}
+
+/* ─────────────────────────────────────────
    INIT ALL
 ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -338,5 +362,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initBookingForm();
   initSmoothScroll();
   initActiveNav();
+  initCookieBanner();
   console.log('%c🐬 Ristorante Pizzeria Delfino — Benvenuto!', 'color:#d4af37; font-size:14px; font-weight:bold;');
 });
