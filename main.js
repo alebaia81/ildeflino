@@ -39,7 +39,7 @@ const menuCucina = [
 ───────────────────────────────────────── */
 function badge(text) {
   return text
-    ? `<span style="font-size:0.6rem;padding:2px 8px;background:rgba(212,175,55,0.15);color:#d4af37;border-radius:999px;border:1px solid rgba(212,175,55,0.3);white-space:nowrap;">${text}</span>`
+    ? `<span style="font-size:0.6rem;padding:2px 8px;background:var(--badge-bg);color:var(--badge-color);border-radius:999px;border:1px solid var(--badge-border);white-space:nowrap;">${text}</span>`
     : '';
 }
 
