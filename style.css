@@ -80,9 +80,9 @@ html.light {
   --navbar-scrolled-bg:     rgba(245,240,232,0.97);
   --navbar-scrolled-border: rgba(212,175,55,0.30);
 
-  --hero-overlay-from: rgba(245,240,232,0.30);
-  --hero-overlay-via:  rgba(245,240,232,0.10);
-  --hero-overlay-to:   rgba(245,240,232,0.92);
+  --hero-overlay-from: rgba(245,240,232,0.85);
+  --hero-overlay-via:  rgba(245,240,232,0.40);
+  --hero-overlay-to:   rgba(245,240,232,0.95);
 
   --badge-bg:    rgba(212,175,55,0.18);
   --badge-color: #8b6503;
@@ -623,4 +623,48 @@ html.light #icon-sun  { display: none; }
 html.light #icon-moon { display: block; }
 html.light #toggle-label-dark { display: none; }
 html.light #toggle-label-light { display: inline; }
+
+/* ══════════════════════════════════════════════
+   MOBILE OVERLAPS & COMPACT HEADER OVERRIDES
+   ══════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  /* Theme toggle pill icon-only on mobile */
+  #theme-toggle span {
+    display: none !important;
+  }
+  #theme-toggle {
+    padding: 0 !important;
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent hero vertical center overlap with navbar */
+  #hero {
+    align-items: flex-start !important;
+    padding-top: 130px !important;
+    padding-bottom: 60px !important;
+  }
+  #hero .relative.z-10 {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Shrink hero content typography & margins for mobile layout */
+  #hero h1 {
+    font-size: 2.25rem !important; /* ~36px */
+    line-height: 1.25 !important;
+    margin-bottom: 1rem !important;
+  }
+  #hero p.text-gray-200 {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  #hero p.text-gold {
+    margin-bottom: 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+}
 
