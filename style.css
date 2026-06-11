@@ -534,7 +534,7 @@ html.light .text-gold\/60 {
   color: rgba(139, 101, 3, 0.6) !important;
 }
 html.light #hero h1 em.text-gold {
-  color: #8b6503 !important;
+  color: var(--text-primary) !important;
 }
 html.light #hero a.border-gold {
   border-color: #8b6503 !important;
