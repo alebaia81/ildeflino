@@ -139,8 +139,27 @@ window.showTab = showTab;
 function initNavbar() {
   const navbar = document.getElementById('navbar');
   const onScroll = () => {
-    if (window.scrollY > 60) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
+    const isLight = document.documentElement.classList.contains('light');
+    const tokens  = window.getThemeTokens ? window.getThemeTokens(isLight) : null;
+
+    if (window.scrollY > 60) {
+      if (!navbar.classList.contains('scrolled')) {
+        navbar.classList.add('scrolled');
+      }
+      // Imposta sfondo e testo link in base al tema corrente
+      if (tokens) {
+        navbar.style.background      = tokens['--navbar-scrolled-bg'];
+        navbar.style.backdropFilter  = 'blur(16px)';
+        navbar.querySelectorAll('.nav-link').forEach(function(el) {
+          el.style.color = tokens['--nav-link-color'];
+        });
+      }
+    } else {
+      navbar.classList.remove('scrolled');
+      navbar.style.background     = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      // Quando non scrolled, i link restano già impostati da applyTheme
+    }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
 }
@@ -351,6 +370,26 @@ function initCookieBanner() {
 }
 
 /* ─────────────────────────────────────────
+   THEME TOGGLE (Dark / Light)
+───────────────────────────────────────── */
+
+
+function initThemeToggle() {
+  // Default = DARK, light solo se salvato esplicitamente
+  const stored = localStorage.getItem('delfino_theme');
+  const isLight = stored === 'light';
+  if (window.applyTheme) {
+    window.applyTheme(isLight);
+  } else {
+    if (isLight) {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+  }
+}
+
+/* ─────────────────────────────────────────
    INIT ALL
 ───────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -363,5 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initActiveNav();
   initCookieBanner();
+  initThemeToggle();
   console.log('%c🐬 Ristorante Pizzeria Delfino — Benvenuto!', 'color:#d4af37; font-size:14px; font-weight:bold;');
 });
+
