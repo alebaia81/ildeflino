@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════
-   RISTORANTE PIZZERIA DELFINO — JAVASCRIPT
+   RISTORANTE PIZZERIA — JAVASCRIPT
    ═══════════════════════════════════════ */
 
 'use strict';
@@ -18,7 +18,7 @@ const menuClassiche = [
 ];
 
 const menuSpeciali = [
-  { name: 'Delfino',          desc: 'Pomodoro, mozzarella, calamari fritti',                          price: '14,00', badge: 'Iconica' },
+  { name: 'Ristorante',       desc: 'Pomodoro, mozzarella, calamari fritti',                          price: '14,00', badge: 'Iconica' },
   { name: 'Beyko',            desc: 'Pomodoro, mozzarella, cipolle, prosciutto crudo di Parma, pomodoro a fette', price: '13,00' },
   { name: 'Lory',             desc: 'Pomodoro, mozzarella, bufala, prosciutto crudo di Parma, scaglie di grana, rucola', price: '12,00' },
   { name: 'Italia',           desc: 'Pomodoro, mozzarella, gorgonzola, peperoni conditi, rucola, salame piccante', price: '11,00' },
@@ -146,19 +146,25 @@ function initNavbar() {
       if (!navbar.classList.contains('scrolled')) {
         navbar.classList.add('scrolled');
       }
-      // Imposta sfondo e testo link in base al tema corrente
-      if (tokens) {
+    } else {
+      if (navbar.classList.contains('scrolled')) {
+        navbar.classList.remove('scrolled');
+      }
+    }
+
+    if (window.updateNavbarTheme && tokens) {
+      window.updateNavbarTheme(tokens);
+    } else if (tokens) {
+      if (window.scrollY > 60) {
         navbar.style.background      = tokens['--navbar-scrolled-bg'];
         navbar.style.backdropFilter  = 'blur(16px)';
         navbar.querySelectorAll('.nav-link').forEach(function(el) {
           el.style.color = tokens['--nav-link-color'];
         });
+      } else {
+        navbar.style.background     = 'transparent';
+        navbar.style.backdropFilter = 'none';
       }
-    } else {
-      navbar.classList.remove('scrolled');
-      navbar.style.background     = 'transparent';
-      navbar.style.backdropFilter = 'none';
-      // Quando non scrolled, i link restano già impostati da applyTheme
     }
   };
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -354,14 +360,14 @@ function initCookieBanner() {
   const rejectBtn = document.getElementById('cookie-reject');
   if (!banner || !acceptBtn || !rejectBtn) return;
 
-  if (!localStorage.getItem('cookie_delfino_consent')) {
+  if (!localStorage.getItem('cookie_demo_consent')) {
     setTimeout(() => {
       banner.classList.remove('translate-y-full');
     }, 1000);
   }
 
   const hideBanner = (choice) => {
-    localStorage.setItem('cookie_delfino_consent', choice);
+    localStorage.setItem('cookie_demo_consent', choice);
     banner.classList.add('translate-y-full');
   };
 
@@ -375,9 +381,9 @@ function initCookieBanner() {
 
 
 function initThemeToggle() {
-  // Default = DARK, light solo se salvato esplicitamente
-  const stored = localStorage.getItem('delfino_theme');
-  const isLight = stored === 'light';
+  // Default = LIGHT
+  const stored = localStorage.getItem('demo_theme');
+  const isLight = stored !== 'dark';
   if (window.applyTheme) {
     window.applyTheme(isLight);
   } else {
@@ -387,6 +393,43 @@ function initThemeToggle() {
       document.documentElement.classList.remove('light');
     }
   }
+}
+
+/* ─────────────────────────────────────────
+   HERO SCROLL EFFECT
+───────────────────────────────────────── */
+function initHeroScroll() {
+  const heroContent = document.getElementById('hero-content');
+  const heroOverlay = document.getElementById('hero-overlay');
+  if (!heroContent && !heroOverlay) return;
+
+  const onScroll = () => {
+    const scrollY = window.scrollY;
+    const maxScroll = 300;
+    const progress = Math.min(scrollY / maxScroll, 1);
+    const isLight = document.documentElement.classList.contains('light');
+
+    if (heroContent) {
+      heroContent.style.opacity = progress;
+      heroContent.style.transform = `translateY(${25 * (1 - progress)}px)`;
+    }
+    
+    if (heroOverlay) {
+      // In light mode, start very clear (0.05) to let the video shine, in dark mode start at 0.15
+      const startOpacity = isLight ? 0.05 : 0.15;
+      heroOverlay.style.opacity = startOpacity + ((1 - startOpacity) * progress);
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  
+  // Listen for theme toggle changes to adjust overlay starting opacity immediately
+  const observer = new MutationObserver(() => {
+    onScroll();
+  });
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  onScroll();
 }
 
 /* ─────────────────────────────────────────
@@ -403,6 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initActiveNav();
   initCookieBanner();
   initThemeToggle();
-  console.log('%c🐬 Ristorante Pizzeria Delfino — Benvenuto!', 'color:#d4af37; font-size:14px; font-weight:bold;');
+  initHeroScroll();
+  console.log('%c🍽️ Ristorante Pizzeria — Benvenuto!', 'color:#d4af37; font-size:14px; font-weight:bold;');
 });
 

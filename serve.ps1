@@ -1,5 +1,5 @@
 $port = 8000
-$root = "e:\Il delfino"
+$root = "e:\Ristorante"
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
 $listener.Start()

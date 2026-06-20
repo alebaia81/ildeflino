@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ristorante Pizzeria Delfino – Specialità Pesce e Pizza | Monticelli d'Ongina</title>
-  <meta name="description" content="Ristorante Pizzeria Delfino: specialità di pesce freschissimo, pizze artigianali e cucina tipica piacentina a Monticelli d'Ongina dal 1997. Prenota ora!" />
-  <meta name="keywords" content="ristorante pesce Monticelli d'Ongina, pizzeria Delfino, pizza artigianale, cucina piacentina, ristorante Piacenza, gran fritto del delfino" />
-  <meta property="og:title" content="Ristorante Pizzeria Delfino – Il Gusto del Mare a Monticelli d'Ongina" />
-  <meta property="og:description" content="Specialità di pesce, pizze artigianali e i grandi classici piacentini. Tradizione e qualità dal 1997." />
+  <title>Ristorante Pizzeria – Specialità Pesce e Pizza | Cucina Italiana</title>
+  <meta name="description" content="Ristorante Pizzeria: specialità di pesce freschissimo, pizze artigianali e cucina tipica tradizionale dal 1997. Prenota ora!" />
+  <meta name="keywords" content="ristorante pesce, pizzeria, pizza artigianale, cucina tradizionale, ristorante pesce e pizza, gran fritto dello chef" />
+  <meta property="og:title" content="Ristorante Pizzeria – Il Gusto del Mare e della Tradizione" />
+  <meta property="og:description" content="Specialità di pesce, pizze artigianali e i grandi classici tradizionali. Qualità dal 1997." />
   <meta property="og:type" content="restaurant" />
 
   <!-- Google Fonts -->
@@ -84,18 +84,70 @@
           navbar.style.backdropFilter = 'none';
         }
 
-        // Link desktop della navbar
-        navbar.querySelectorAll('.nav-link, .nav-link-mobile').forEach(function(el) {
-          el.style.color = tokens['--nav-link-color'];
+        // Link desktop della navbar (solo .nav-link, per evitare di sovrascrivere il menu mobile)
+        navbar.querySelectorAll('.nav-link').forEach(function(el) {
+          if (isScrolled) {
+            el.style.color = tokens['--nav-link-color'];
+          } else {
+            el.style.color = '#d1d5db'; // grigio chiaro per contrasto su video scuro
+          }
         });
 
         // Logo text
-        var logoText = navbar.querySelector('[style*="--text-primary"], .font-serif');
         navbar.querySelectorAll('.font-serif').forEach(function(el) {
           if (!el.classList.contains('text-gold')) {
-            el.style.color = tokens['--text-primary'];
+            if (isScrolled) {
+              el.style.color = tokens['--text-primary'];
+            } else {
+              el.style.color = '#ffffff'; // bianco per contrasto su video scuro
+            }
           }
         });
+
+        // Logo emblem, logo letter, and logo subtitle contrast
+        var logoEmblem = navbar.querySelector('.logo-emblem');
+        var logoLetter = logoEmblem ? logoEmblem.querySelector('span') : null;
+        var logoSubtitle = navbar.querySelector('.logo-subtitle');
+
+        if (logoEmblem) {
+          if (isScrolled) {
+            var isLight = document.documentElement.classList.contains('light');
+            var goldColor = isLight ? '#8b6503' : '#d4af37';
+            logoEmblem.style.borderColor = goldColor;
+            if (logoLetter) logoLetter.style.color = goldColor;
+            if (logoSubtitle) logoSubtitle.style.setProperty('color', goldColor, 'important');
+          } else {
+            logoEmblem.style.borderColor = '#d4af37'; // gold brillante su video scuro
+            if (logoLetter) logoLetter.style.color = '#d4af37';
+            if (logoSubtitle) logoSubtitle.style.setProperty('color', '#d4af37', 'important');
+          }
+        }
+
+        // Hamburger lines contrast (Mobile)
+        var hamburgerLines = navbar.querySelectorAll('.hamburger-line');
+        hamburgerLines.forEach(function(line) {
+          if (isScrolled) {
+            var isLight = document.documentElement.classList.contains('light');
+            line.style.setProperty('background-color', isLight ? '#8b6503' : '#d4af37', 'important');
+          } else {
+            line.style.setProperty('background-color', '#d4af37', 'important');
+          }
+        });
+
+        // Theme toggle button
+        var themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+          if (isScrolled) {
+            var isLight = document.documentElement.classList.contains('light');
+            themeToggle.style.color = isLight ? '#8b6503' : '#d4af37';
+            themeToggle.style.borderColor = isLight ? 'rgba(139,101,3,0.55)' : 'rgba(212,175,55,0.55)';
+            themeToggle.style.background = isLight ? 'rgba(139,101,3,0.06)' : 'rgba(212,175,55,0.10)';
+          } else {
+            themeToggle.style.color = '#d4af37'; // gold per contrasto su video scuro
+            themeToggle.style.borderColor = 'rgba(212,175,55,0.55)';
+            themeToggle.style.background = 'rgba(212,175,55,0.10)';
+          }
+        }
       }
 
       function applyTheme(isLight) {
@@ -108,7 +160,7 @@
         // *** NAVBAR: aggiornamento esplicito bg + testo ***
         updateNavbar(tokens);
 
-        localStorage.setItem('delfino_theme', isLight ? 'light' : 'dark');
+        localStorage.setItem('demo_theme', isLight ? 'light' : 'dark');
 
         var btn = document.getElementById('theme-toggle');
         if (btn) btn.setAttribute('aria-pressed', String(isLight));
@@ -124,9 +176,11 @@
         applyTheme(isLight);
       };
 
-      // Applica subito il tema salvato — default = DARK
-      var saved = localStorage.getItem('delfino_theme');
-      if (saved === 'light') {
+      // Applica subito il tema salvato — default = LIGHT
+      var saved = localStorage.getItem('demo_theme');
+      if (saved === 'dark') {
+        // resta scuro
+      } else {
         document.documentElement.classList.add('light');
       }
     })();
@@ -174,21 +228,21 @@
   {
     "@context": "https://schema.org",
     "@type": "Restaurant",
-    "name": "Ristorante Pizzeria Delfino",
-    "description": "Specialità di pesce freschissimo, pizze artigianali e cucina tipica piacentina a Monticelli d'Ongina.",
-    "url": "https://www.ristorantedelfino.it",
-    "image": "https://www.ristorantedelfino.it/hero_bg.png",
-    "servesCuisine": ["Pesce", "Italiana", "Pizza Artigianale", "Cucina Piacentina"],
+    "name": "Ristorante Pizzeria",
+    "description": "Specialità di pesce freschissimo, pizze artigianali e cucina tipica tradizionale.",
+    "url": "https://www.ristorante.demo",
+    "image": "https://www.ristorante.demo/hero_bg.png",
+    "servesCuisine": ["Pesce", "Italiana", "Pizza Artigianale", "Cucina Tradizionale"],
     "priceRange": "€€",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Via Martiri della Libertà, 2",
-      "addressLocality": "Monticelli d'Ongina",
-      "addressRegion": "PC",
-      "postalCode": "29010",
+      "streetAddress": "Via Roma, 1",
+      "addressLocality": "Città",
+      "addressRegion": "PR",
+      "postalCode": "12345",
       "addressCountry": "IT"
     },
-    "telephone": "+393388003306",
+    "telephone": "+390123456789",
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday"], "opens": "05:00", "closes": "14:30" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday","Thursday"], "opens": "05:00", "closes": "22:00" },
@@ -197,10 +251,10 @@
     ],
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 45.0884,
-      "longitude": 9.9393
+      "latitude": 45.4642,
+      "longitude": 9.1900
     },
-    "menu": "https://www.ristorantedelfino.it/#menu",
+    "menu": "https://www.ristorante.demo/#menu",
     "acceptsReservations": true
   }
   </script>
@@ -213,13 +267,13 @@
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" aria-label="Navigazione principale">
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <!-- Logo -->
-      <a href="#hero" class="flex items-center gap-3 group" aria-label="Ristorante Pizzeria Delfino - Home">
+      <a href="#hero" class="flex items-center gap-3 group" aria-label="Ristorante Pizzeria - Home">
         <div class="logo-emblem w-10 h-10 border border-gold rounded-full flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
-          <span class="font-serif text-gold text-sm font-bold group-hover:text-dark-primary transition-colors duration-300">RD</span>
+          <span class="font-serif text-gold text-sm font-bold group-hover:text-dark-primary transition-colors duration-300">R</span>
         </div>
         <div class="leading-none">
-          <span class="block font-serif text-lg font-semibold" style="color:var(--text-primary)">Ristorante Delfino</span>
-          <span class="block text-xs text-gold tracking-widest uppercase">Monticelli d'Ongina</span>
+          <span class="block font-serif text-lg font-semibold" style="color:var(--text-primary)">Ristorante Pizzeria</span>
+          <span class="logo-subtitle block text-xs text-gold tracking-widest uppercase">Gusto &amp; Tradizione</span>
         </div>
       </a>
 
@@ -289,7 +343,7 @@
         <source src="hero_fish.mp4" type="video/mp4" />
       </video>
       <!-- Overlay adattivo al tema -->
-      <div class="hero-overlay-gradient absolute inset-0"></div>
+      <div id="hero-overlay" class="hero-overlay-gradient absolute inset-0" style="will-change: opacity;"></div>
       <!-- Vignette laterale -->
       <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 55%, rgba(10,10,10,0.35) 100%);"></div>
     </div>
@@ -299,13 +353,13 @@
     <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-60"></div>
 
     <!-- Hero Content -->
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-24">
+    <div id="hero-content" class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-24" style="will-change: opacity, transform;">
       <p class="fade-in text-gold text-sm tracking-[0.4em] uppercase mb-6 font-light [text-shadow:0_2px_10px_rgba(0,0,0,0.8)]">Dal 1997 · Passione · Qualità</p>
       <h1 class="fade-in font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
         Il Gusto del Mare<br /><em class="text-gold">incontra la Tradizione</em>
       </h1>
       <p class="fade-in text-gray-200 text-lg md:text-xl mb-12 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-        Specialità di pesce freschissimo, pizze artigianali e i grandi classici piacentini dal 1997.
+        Specialità di pesce freschissimo, pizze artigianali e i grandi classici della tradizione dal 1997.
       </p>
       <div class="fade-in flex flex-col sm:flex-row w-full max-w-sm mx-auto sm:max-w-none gap-4 justify-center items-center">
         <a href="#prenota" class="px-6 py-4 sm:px-10 sm:py-5 bg-gold text-dark-primary font-semibold text-base sm:text-lg rounded-xl hover:bg-gold-light hover:scale-105 transition-all duration-300 shadow-gold w-full sm:w-auto sm:min-w-[240px] text-center">
@@ -356,15 +410,15 @@
           </div>
         </article>
 
-        <!-- Card 2: Gran Fritto del Delfino -->
+        <!-- Card 2: Gran Fritto dello Chef -->
         <article class="dish-card fade-in-scroll bg-dark-card rounded-2xl overflow-hidden group cursor-pointer border border-transparent hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl" style="transition-delay: 100ms;">
           <div class="relative overflow-hidden h-56">
-            <img src="images/frittura1.webp" alt="Gran Fritto del Delfino" width="400" height="300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+            <img src="images/frittura1.webp" alt="Gran Fritto dello Chef" width="400" height="300" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent"></div>
             <div class="absolute top-4 left-4 px-3 py-1 bg-gold text-dark-primary text-xs font-semibold rounded-full tracking-wide">Iconico</div>
           </div>
           <div class="p-6">
-            <h3 class="font-serif text-xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Gran Fritto del Delfino</h3>
+            <h3 class="font-serif text-xl text-white mb-2 group-hover:text-gold transition-colors duration-300">Gran Fritto dello Chef</h3>
             <p class="text-gray-400 text-sm leading-relaxed mb-4">Il meglio del pescato, croccante e leggero.</p>
             <div class="flex items-center justify-between">
               <span class="text-gold font-semibold">€ 18,00</span>
@@ -446,16 +500,16 @@
           </h2>
           <div class="space-y-5 text-gray-300 leading-relaxed">
             <p>
-              Nel cuore di <strong class="text-white">Monticelli d'Ongina</strong>, Ristorante Pizzeria Delfino è molto più di un locale: è un punto di incontro tra la freschezza del mare e la solidità della cucina piacentina. Dal 1997, portiamo in tavola passione e qualità.
+              Nel cuore della nostra <strong class="text-white">città</strong>, Ristorante Pizzeria è molto più di un locale: è un punto di incontro tra la freschezza del mare e la solidità della cucina tradizionale. Dal 1997, portiamo in tavola passione e qualità.
             </p>
             <p>
               Tutto nasce dall'<strong class="text-gold">impasto</strong>. Lo lavoriamo ogni mattina, con farina selezionata e lievito madre che fermenta lentamente per oltre 48 ore. Il risultato è una pizza leggera, croccante fuori, morbida dentro: quella che i veri intenditori riconoscono al primo morso.
             </p>
             <p>
-              Accanto alla pizza, portiamo in tavola la <strong class="text-white">cucina tipica piacentina</strong> — i pisarei e fasò, la coppa, i salami DOP — perché crediamo che il territorio sia il miglior ingrediente che esiste. Una tradizione culinaria che affonda le radici nell'Ottocento e che noi custodiamo con orgoglio, giorno dopo giorno.
+              Accanto alla pizza, portiamo in tavola la <strong class="text-white">cucina tipica tradizionale</strong> — i piatti storici della tradizione, i salumi selezionati DOP — perché crediamo che il territorio sia il miglior ingrediente che esiste. Una tradizione culinaria che affonda le radici nel passato e che noi custodiamo con orgoglio, giorno dopo giorno.
             </p>
             <p class="text-sm italic text-gray-500">
-              Pizzeria vicino a Cremona, punto di riferimento per la cucina tipica piacentina.
+              Ristorante e pizzeria d'eccellenza, punto di riferimento per la cucina tradizionale.
             </p>
           </div>
           <div class="mt-10 flex gap-8">
@@ -479,13 +533,13 @@
         <!-- Decorative image block -->
         <div class="fade-in-scroll relative">
           <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="images/castello di monticelli d'ongina.webp" alt="Il magnifico Castello di Monticelli d'Ongina" width="800" height="600" class="w-full h-96 lg:h-[520px] object-cover" loading="lazy" />
+            <img src="images/castello storico locale.webp" alt="Un magnifico castello storico nei dintorni" width="800" height="600" class="w-full h-96 lg:h-[520px] object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-dark-secondary/80 via-transparent to-transparent"></div>
           </div>
           <!-- Floating quote card -->
           <div class="quote-card absolute -bottom-6 -left-6 border border-gold/30 rounded-2xl p-6 max-w-xs shadow-gold">
-            <p class="font-serif italic text-sm leading-relaxed" style="color:var(--text-primary)">"Il mare a tavola, la pizza nel cuore e la tradizione piacentina in ogni morso."</p>
-            <p class="text-gold text-xs mt-3 tracking-wide">— Ristorante Pizzeria Delfino</p>
+            <p class="font-serif italic text-sm leading-relaxed" style="color:var(--text-primary)">"Il mare a tavola, la pizza nel cuore e la tradizione locale in ogni morso."</p>
+            <p class="text-gold text-xs mt-3 tracking-wide">— Ristorante Pizzeria</p>
           </div>
         </div>
       </div>
@@ -543,7 +597,7 @@
       </div>
 
       <div class="text-center mt-12 fade-in-scroll">
-        <a href="https://www.tripadvisor.it/Restaurant_Review-g1966160-d4722502-Reviews-Pizzeria_Trattoria_Delfino-Monticelli_d_Ongina_Province_of_Piacenza_Emilia_Romag.html" target="_blank" rel="noopener" class="text-gold text-xs uppercase tracking-widest hover:text-white transition-colors border-b border-gold/30 pb-1">Leggi tutte le recensioni su TripAdvisor</a>
+        <a href="https://www.tripadvisor.it" target="_blank" rel="noopener" class="text-gold text-xs uppercase tracking-widest hover:text-white transition-colors border-b border-gold/30 pb-1">Leggi tutte le recensioni su TripAdvisor</a>
       </div>
     </div>
   </section>
@@ -701,7 +755,7 @@
       </div>
 
       <form id="booking-form" action="https://formspree.io/f/xbdzebal" method="POST" class="booking-card fade-in-scroll border border-gold/20 rounded-2xl p-8 md:p-10 shadow-2xl" novalidate>
-        <input type="hidden" name="_subject" value="Nuova Prenotazione – Ristorante Delfino" />
+        <input type="hidden" name="_subject" value="Nuova Prenotazione – Ristorante Pizzeria" />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
           <div class="form-group">
@@ -798,10 +852,10 @@
               </div>
               <div>
                 <h4 class="text-white font-medium mb-1">Indirizzo</h4>
-                <p class="text-gray-400 text-sm">Via Martiri della Libertà, 2, 29010 Monticelli d'Ongina (PC)</p>
+                <p class="text-gray-400 text-sm">Via Roma, 1, 12345 Città (PR)</p>
               </div>
             </div>
-            <p class="text-xs text-gray-500 mt-1">Specialità di pesce · Pizzeria Artigianale · Tradizione Piacentina</p>
+            <p class="text-xs text-gray-500 mt-1">Specialità di pesce · Pizzeria Artigianale · Tradizione Locale</p>
           </div>
 
           <div class="flex gap-5 items-start group">
@@ -810,7 +864,7 @@
             </div>
             <div>
               <h3 class="font-semibold text-white mb-1">Telefono</h3>
-              <a href="tel:+390523827255" class="text-gold hover:text-gold-light transition-colors text-sm">0523 827255</a>
+              <a href="tel:+390123456789" class="text-gold hover:text-gold-light transition-colors text-sm">0123 456789</a>
             </div>
           </div>
 
@@ -861,7 +915,7 @@
             <a href="#" aria-label="Instagram" class="social-icon w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-primary transition-all duration-300">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round"/></svg>
             </a>
-            <a href="https://wa.me/393388003306" aria-label="WhatsApp" class="social-icon w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-primary transition-all duration-300">
+            <a href="https://wa.me/390123456789" aria-label="WhatsApp" class="social-icon w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-primary transition-all duration-300">
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </a>
           </div>
@@ -871,18 +925,18 @@
         <div class="fade-in-scroll">
           <div class="rounded-2xl overflow-hidden border border-gold/20 shadow-2xl bg-dark-card h-80 lg:h-96 relative">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2812.3!2d9.939!3d45.088!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVia%20Martiri%20della%20Libert%C3%A0%2C%202%2C%2029010%20Monticelli%20d'Ongina%20PC!5e0!3m2!1sit!2sit!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2798.2!2d9.189!3d45.464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sPiazza%20del%20Duomo%2C%20Milano!5e0!3m2!1sit!2sit!4v1234567890"
               width="100%"
               height="100%"
               style="border:0; filter: grayscale(70%) contrast(0.85);"
               allowfullscreen=""
               loading="lazy"
-              title="Mappa Ristorante Pizzeria Delfino – Via Martiri della Libertà, 2 Monticelli d'Ongina"
+              title="Mappa Ristorante Pizzeria – Centro Città"
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
             <div class="absolute inset-0 pointer-events-none border border-gold/10 rounded-2xl"></div>
           </div>
-          <p class="text-xs text-gray-500 text-center mt-3">Via Martiri della Libertà, 2, Monticelli d'Ongina (PC) — <a href="https://maps.google.com?q=Via+Martiri+della+Libertà,+2,+Monticelli+d'Ongina,+PC" target="_blank" rel="noopener" class="text-gold hover:text-gold-light transition-colors">Apri in Google Maps →</a></p>
+          <p class="text-xs text-gray-500 text-center mt-3">Via Roma, 1, 12345 Città (PR) — <a href="https://maps.google.com?q=Via+Roma,+1,+Città" target="_blank" rel="noopener" class="text-gold hover:text-gold-light transition-colors">Apri in Google Maps →</a></p>
         </div>
 
       </div>
@@ -900,13 +954,13 @@
         <div class="text-center md:text-left">
           <div class="flex items-center gap-3 justify-center md:justify-start mb-3">
             <div class="w-8 h-8 border border-gold rounded-full flex items-center justify-center">
-              <span class="font-serif text-gold text-xs font-bold">RD</span>
+              <span class="font-serif text-gold text-xs font-bold">R</span>
             </div>
-            <span class="font-serif text-xl text-white">Ristorante Pizzeria Delfino</span>
+            <span class="font-serif text-xl text-white">Ristorante Pizzeria</span>
           </div>
           <p class="text-xs text-gray-500 mb-1">Specialità Pesce · Pizzeria Artigianale · Cucina Tipica</p>
-          <p class="text-xs text-gray-500">Eccellenza gastronomica a Monticelli d'Ongina dal 1997.</p>
-          <p class="text-xs text-gray-600 mt-1">Via Martiri della Libertà, 2, 29010 Monticelli d'Ongina (PC)</p>
+          <p class="text-xs text-gray-500">Eccellenza gastronomica in Città dal 1997.</p>
+          <p class="text-xs text-gray-600 mt-1">Via Roma, 1, 12345 Città (PR)</p>
         </div>
 
         <!-- Social Links -->
@@ -927,12 +981,12 @@
       </div>
 
       <div class="border-t border-gold/10 mt-10 pt-6 text-center">
-        <p class="text-xs text-gray-600">© 2026 Ristorante Pizzeria Delfino – Tutti i diritti riservati · <a href="#" class="hover:text-gold-light transition-colors">Privacy Policy</a></p>
+        <p class="text-xs text-gray-600">© 2026 Ristorante Pizzeria – Tutti i diritti riservati · <a href="#" class="hover:text-gold-light transition-colors">Privacy Policy</a></p>
       </div>
     </div>
   </footer>
 
-  <a href="https://wa.me/393388003306?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20al%20Ristorante%20Delfino." target="_blank" rel="noopener" id="whatsapp-btn" aria-label="Chatta su WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+  <a href="https://wa.me/390123456789?text=Ciao!%20Vorrei%20prenotare%20un%20tavolo%20al%20Ristorante." target="_blank" rel="noopener" id="whatsapp-btn" aria-label="Chatta su WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
     <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
