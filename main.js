@@ -142,6 +142,9 @@ function initNavbar() {
     const isLight = document.documentElement.classList.contains('light');
     const tokens  = window.getThemeTokens ? window.getThemeTokens(isLight) : null;
 
+    const piattiSection = document.getElementById('piatti');
+    const threshold = piattiSection ? piattiSection.offsetTop - 80 : window.innerHeight - 80;
+
     if (window.scrollY > 60) {
       if (!navbar.classList.contains('scrolled')) {
         navbar.classList.add('scrolled');
@@ -152,18 +155,35 @@ function initNavbar() {
       }
     }
 
+    if (window.scrollY > threshold) {
+      if (!navbar.classList.contains('past-hero')) {
+        navbar.classList.add('past-hero');
+      }
+    } else {
+      if (navbar.classList.contains('past-hero')) {
+        navbar.classList.remove('past-hero');
+      }
+    }
+
     if (window.updateNavbarTheme && tokens) {
       window.updateNavbarTheme(tokens);
     } else if (tokens) {
+      const isPastHero = window.scrollY > threshold;
+      if (isPastHero) {
+        navbar.style.background = tokens['--navbar-solid-bg'] || tokens['--bg-primary'];
+        navbar.style.backdropFilter = 'none';
+      } else if (window.scrollY > 60) {
+        navbar.style.background = tokens['--navbar-glass-bg'] || 'rgba(0,0,0,0.3)';
+        navbar.style.backdropFilter = 'blur(16px)';
+      } else {
+        navbar.style.background = 'transparent';
+        navbar.style.backdropFilter = 'none';
+      }
+      
       if (window.scrollY > 60) {
-        navbar.style.background      = tokens['--navbar-scrolled-bg'];
-        navbar.style.backdropFilter  = 'blur(16px)';
         navbar.querySelectorAll('.nav-link').forEach(function(el) {
           el.style.color = tokens['--nav-link-color'];
         });
-      } else {
-        navbar.style.background     = 'transparent';
-        navbar.style.backdropFilter = 'none';
       }
     }
   };

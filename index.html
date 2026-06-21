@@ -52,6 +52,8 @@
         '--text-secondary':    '#d1d5db',
         '--text-muted':        '#6b7280',
         '--navbar-scrolled-bg':'rgba(10,10,10,0.95)',
+        '--navbar-glass-bg':   'rgba(10,10,10,0.35)',
+        '--navbar-solid-bg':   '#0a0a0a',
         '--nav-link-color':    '#d1d5db'   /* testo nav visibile su dark */
       };
       var LIGHT_TOKENS = {
@@ -62,6 +64,8 @@
         '--text-secondary':    '#3d2e0f',
         '--text-muted':        '#6b5427',
         '--navbar-scrolled-bg':'rgba(245,240,232,0.97)',
+        '--navbar-glass-bg':   'rgba(255,255,255,0.4)',
+        '--navbar-solid-bg':   '#ffffff',
         '--nav-link-color':    '#3d2e0f'   /* testo nav visibile su crema */
       };
 
@@ -74,10 +78,14 @@
         if (!navbar) return;
 
         var isScrolled = navbar.classList.contains('scrolled');
+        var isPastHero = navbar.classList.contains('past-hero');
 
         // Sfondo navbar
-        if (isScrolled) {
-          navbar.style.background = tokens['--navbar-scrolled-bg'];
+        if (isPastHero) {
+          navbar.style.background = tokens['--navbar-solid-bg'] || tokens['--bg-primary'];
+          navbar.style.backdropFilter = 'none';
+        } else if (isScrolled) {
+          navbar.style.background = tokens['--navbar-glass-bg'] || 'rgba(0,0,0,0.3)';
           navbar.style.backdropFilter = 'blur(16px)';
         } else {
           navbar.style.background = 'transparent';
