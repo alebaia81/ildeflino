@@ -399,13 +399,16 @@ function initHeroScroll() {
 
   const onScroll = () => {
     const scrollY = window.scrollY;
-    const maxScroll = 300;
+    // Lower maxScroll on mobile to make the text appear faster since it's higher up
+    const isMobile = window.innerWidth < 768;
+    const maxScroll = isMobile ? 120 : 300;
     const progress = Math.min(scrollY / maxScroll, 1);
     const isLight = document.documentElement.classList.contains('light');
 
     if (heroContent) {
-      heroContent.style.opacity = 1 - progress;
-      heroContent.style.transform = `translateY(${-30 * progress}px)`;
+      // Testo inizialmente invisibile che appare gradualmente scrollando
+      heroContent.style.opacity = progress;
+      heroContent.style.transform = `translateY(${25 * (1 - progress)}px)`;
     }
     
     if (heroOverlay) {
