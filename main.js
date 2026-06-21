@@ -234,17 +234,11 @@ function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        // Add staggered delay for siblings
-        const siblings = entry.target.parentElement.querySelectorAll('.fade-in-scroll');
-        let delay = 0;
-        siblings.forEach((el, i) => {
-          if (el === entry.target) delay = i * 80;
-        });
-        setTimeout(() => entry.target.classList.add('visible'), delay);
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.04, rootMargin: '0px 0px -10px 0px' });
 
   elements.forEach(el => observer.observe(el));
 }
@@ -410,8 +404,8 @@ function initHeroScroll() {
     const isLight = document.documentElement.classList.contains('light');
 
     if (heroContent) {
-      heroContent.style.opacity = progress;
-      heroContent.style.transform = `translateY(${25 * (1 - progress)}px)`;
+      heroContent.style.opacity = 1 - progress;
+      heroContent.style.transform = `translateY(${-30 * progress}px)`;
     }
     
     if (heroOverlay) {
